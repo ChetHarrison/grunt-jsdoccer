@@ -1,0 +1,9 @@
+{
+	"jsToDocument": {
+		"src": "./js/"
+	},
+	"filesToFilter": [
+		".DS_Store",
+		"filter-this.js"
+	]
+}

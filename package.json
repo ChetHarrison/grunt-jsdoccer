@@ -1,0 +1,28 @@
+{
+  "name": "grunt-jsdoccer",
+  "version": "1.0.0",
+  "description": "A Grunt task to auto document ECMA Script (JS) using Esprima.",
+  "main": "grunt-jsdoccer.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ChetHarrison/grunt-jsdoccer.git"
+  },
+  "keywords": [
+    "javascript",
+    "auto",
+    "document",
+    "generator"
+  ],
+  "author": "Chet Harrison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChetHarrison/grunt-jsdoccer/issues"
+  },
+  "homepage": "https://github.com/ChetHarrison/grunt-jsdoccer",
+  "dependencies": {
+    "jsdoccer": "^1.1.0"
+  }
+}
