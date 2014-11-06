@@ -4,7 +4,7 @@ var yamlTaskName	= 'jsDoccerYaml',
 	jsonTaskName 	= 'jsDoccerJson',
 	htmlTaskName 	= 'jsDoccerHtml',
 	
-	jsDoccer 		= require('../src/jsdoccer.js');
+	jsDoccer 		= require('jsdoccer');
 
 module.exports = function (grunt) {
 	grunt.registerMultiTask(yamlTaskName, 'Generate a stubbed YAML doc template.', function () {

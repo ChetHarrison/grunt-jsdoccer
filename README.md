@@ -28,6 +28,14 @@ $ grunt jsDoccerYaml
 
 **Note:** once you have generated the stubbed YAML templates you will find them in the `yaml/stubbed-dest` directory. You will need to move them to `yaml/doccumented-src` directory before you augment them so you don't accidenly over write them by running the task again.
 
+2) Generate document HTML
+
+```
+grunt jsDoccerHtml'
+```
+
+Your documentes will be saved at `jsdoccer/documentation`.
+
 ### Configuration
 
 add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it is ugly and I will clean it up when I get a chance.)
@@ -81,32 +89,12 @@ add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it
 
 **files.src**: Files to document.
 
+and add this to your `GRUNTFILE.js`
 
-2) Generate document HTML
 
 ```
-grunt jsDoccerHtml'
-```
-
-add this to your `grunt.initConfig` in your `GRUNTFILE.js`
-
-```
-    'jsDoccer:html': {
-      doc: {
-        options: {
-          handelbarsTemplate: './templates/jsdoc/class.hbs'
-        },
-        src: 'doc-json/*.json',
-        dest: 'jsdoc'
-      }
-    }
-```
-
-
-2) lint existing documents **(this is not working right now)**
-
-```
-$ grunt jsDoccerLint
+grunt.loadNpmTasks('jsDoccerYaml');
+grunt.loadNpmTasks('jsDoccerDoc');
 ```
 
 
