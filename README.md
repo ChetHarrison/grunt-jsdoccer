@@ -41,7 +41,7 @@ Your documentes will be saved at `jsdoccer/documentation`.
 add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it is ugly and I will clean it up when I get a chance.)
 
 ```
-    'jsDoccer:yaml': {
+    'jsDoccerYaml': {
       doc: {
         options: {
           filesToFilter: [
@@ -55,7 +55,7 @@ add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it
       }
     },
 
-    'jsDoccer:json': {
+    'jsDoccerJson': {
       doc: {
         options: {
           filesToFilter: [
