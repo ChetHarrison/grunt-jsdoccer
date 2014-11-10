@@ -14,7 +14,8 @@
     "javascript",
     "auto",
     "document",
-    "generator"
+    "generator",
+    "gruntplugin"
   ],
   "author": "Chet Harrison",
   "license": "ISC",
