@@ -37,7 +37,7 @@ Your documentes will be saved at `jsdoccer/documentation`.
 
 ### Configuration
 
-add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it is ugly and I will clean it up when I get a chance.)
+add this to your `grunt.initConfig` in your `GRUNTFILE.js`.
 
 ```
     jsdoccer: {
@@ -55,9 +55,17 @@ add this to your `grunt.initConfig` in your `GRUNTFILE.js` (And yes currently it
       lint: {}
     }
 ```
-**fileFilters**: Files listed here will be ignored by the parser.
+**options.filesToFilter**: Files listed here will be ignored by the parser.
 
 **yaml.src**: List the JS source files you would like to document.
+
+**json**: no configuration is currently required but we need a target.
+
+**html**: no configuration is currently required but we need a target.
+
+**doc**: no configuration is currently required but we need a target.
+
+**lint**: not currently implemented.
 
 and add this to your `GRUNTFILE.js`
 
