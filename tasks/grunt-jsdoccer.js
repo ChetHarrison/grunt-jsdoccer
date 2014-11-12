@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 			case 'json':
 				var fileCount = jsDoccer.prepareYaml();
 				if (fileCount > 0) {
-					grunt.log.ok( + ' ' + grunt.util.pluralize(this.filesSrc.length, 'file/files') + ' documented.');
+					grunt.log.ok(fileCount + ' ' + grunt.util.pluralize(this.filesSrc.length, 'file/files') + ' documented.');
 				}
 				else {
 					grunt.log.warn('No files were found in "jsdoccer/generated-files/yaml/documented".');
