@@ -25,7 +25,7 @@ $ npm install grunt-jsdoccer --save-dev
 $ grunt jsdoccer:yaml
 ```
 
-The first time you run this command the tool will search for a `jsdoccer/syntaxMatchers.js` file at the root of your project directory. if it is not found it will copy the `setup` directory into a `jsdoccer` directory at the project root containing the default syntax matchers and templates. You can then custimize them to suit your style of code. **Note:** currently, if you delete the `syntaxMatchers.js` file it will generate a new `jsdoccer` folder with all the defaults and you will loose any custom augmentations you have made to your YAML templates. Once you have generated the stubbed YAML templates you will find them in the `jsdoccer/generated-files/yaml/stubbed` directory. You will need to move them to `jsdoccer/generated-files/yaml/documented` directory before you augment them so you don't accidenly over write them by running the task again. **If you forget to move them you will not be able to generate the documents!**
+The first time you run this command the tool will search for a `jsdoccer/syntaxMatchers.js` file at the root of your project directory. if it is not found it will copy the `setup` directory into a `jsdoccer` directory at the project root containing the default syntax matchers and templates. You can then customize them to suit your style of code. **Note:** currently, if you delete the `syntaxMatchers.js` file it will generate a new `jsdoccer` folder with all the defaults and you will loose any custom augmentations you have made to your YAML templates. Once you have generated the stubbed YAML templates you will find them in the `jsdoccer/generated-files/yaml/stubbed` directory. You will need to move them to `jsdoccer/generated-files/yaml/documented` directory before you augment them so you don't accidentally over write them by running the task again. **If you forget to move them you will not be able to generate the documents!**
 
 2) Generate document HTML
 
@@ -33,7 +33,7 @@ The first time you run this command the tool will search for a `jsdoccer/syntaxM
 grunt jsdoccer:doc
 ```
 
-Your documentes will be saved at `jsdoccer/documentation`.
+Your documents will be saved at `jsdoccer/documentation`.
 
 ### Configuration
 
@@ -41,37 +41,70 @@ add this to your `grunt.initConfig` in your `GRUNTFILE.js`.
 
 ```
     jsdoccer: {
-      options: {
-        filesToFilter: [
-          '.DS_Store'
-        ]
-      },
-      yaml: {
+      // if null the project name will be pulled from the root dir name
+      projectName: null,
+
+      stub: {
+        // glob paths to the js you want to document
         src: ['js/*.js']
       },
-      json: {},
-      html: {},
-      doc: {},
-      lint: {}
+
+      doc: {
+        // Glob paths to your documented yaml.
+        src: ['./doccer/intermediate/yaml-documented/*.yaml']
+      },
+
+      options: {
+        projectName: null,
+        
+        // All generated intermediate files will be placed under this path.
+        dest: './doccer/',
+        
+        // Syntax targets
+        targets: {
+          default: {
+            name: true,
+            'class': true,  // with resurve words use quotes
+            'constructor': true,
+            events: true,
+            properties: true,
+            functions: true
+          },
+          custom: {
+            // Add custom targets here. Example:
+            // customTarget1: true,
+            // customTarget2: true
+          },
+          customTargetsPath: './customSyntaxTargets/'
+        }
+      }
     }
 ```
-**options.filesToFilter**: Files listed here will be ignored by the parser.
 
-**yaml.src**: List the JS source files you would like to document.
+**js/src**: List the JS source files you would like to document.
 
-**json**: no configuration is currently required but we need a target.
+**documentedYaml/src**: location of your documented YAML.
 
 **html**: no configuration is currently required but we need a target.
 
-**doc**: no configuration is currently required but we need a target.
+**dest**: your documents and all intermediate files will be placed here.
 
-**lint**: not currently implemented.
+**targets/default**: jsdoccer comes with 6 default syntax targets. You can 
+set them to false to disable them. __Curently the tool is wired to document
+class style code. The hooks are in place to configure to any custom style
+you would like however in need to make another small adjustment to make
+the documentation templates extensible.__
+
 
 and add this to your `GRUNTFILE.js`
 
 
 ```
 grunt.loadNpmTasks('jsdoccer');
+
+grunt.registerTask('stub', 'Auto generate YAML JSDoc 3 document stubs.', ['jsdoccer:stub']);
+grunt.registerTask('doc', 'Generate documentation HTML from documented YAML.', ['jsdoccer:doc']);
+grunt.registerTask('lint', 'lint your docs.', ['jsdoccer:lint']);
 ```
 
 

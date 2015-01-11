@@ -1,30 +1,36 @@
 {
-	"js": {     
-		"src": "./tests/mock-files/js/"
+	// Note: all comments are striped before this file is parsed.
+	// if null the project name will be pulled from the root dir name
+	'projectName': null,
+
+	'js': {
+		// glob paths to the js you want to document
+		'src': ['js/*.js']
 	},
-	
-	"ast": {
-		"dest": "./tests/mock-files/ast/"
+
+	'documentedYaml': {
+		// Glob paths to your documented yaml.
+		'src': ['./doccer/intermediate/yaml-documented/*.yaml']
 	},
-	
-	"json": {
-		"dest": "./tests/mock-files/json/"
-	},
-	
-	"yaml": {
-		"templates": "./templates/",
-		"dest": "./tests/mock-files/yaml/"
-	},
-	
-	"jsdoc": {
-		"dest": "./tests/mock-files/jsdoc/"
-	},
-	
-	"syntaxMatchers": {
-		"src": "./syntax-matchers.js"
-	},
-	
-	"filesToFilter": [
-		".DS_Store"
-	]
+
+	// All generated intermediate files will be placed under this path.
+	'dest': './doccer/',
+
+	// Syntax targets
+	'targets': {
+		'default': {
+			'name': true,
+			'class': true,
+			'constructor': true,
+			'events': true,
+			'properties': true,
+			'functions': true
+		},
+		'custom': {
+			// Add custom targets here. Example:
+			// 'customTarget1': true,
+			// 'customTarget2': true
+		},
+		'customTargetsPath': './customSyntaxTargets/'
+	}
 }

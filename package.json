@@ -1,6 +1,6 @@
 {
   "name": "grunt-jsdoccer",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "description": "A Grunt task to auto document ECMA Script (JS) using Esprima.",
   "scripts": {
     "test": "test"
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ChetHarrison/grunt-jsdoccer",
   "dependencies": {
-    "jsdoccer": "^1.1.11"
+    "jsdoccer": "^2.0.2"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
