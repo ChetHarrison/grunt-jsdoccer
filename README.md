@@ -22,10 +22,10 @@ $ npm install grunt-jsdoccer --save-dev
 1) create stubbed YAML document templates
 
 ```
-$ grunt jsdoccer:yaml
+$ grunt jsdoccer:stub
 ```
 
-The first time you run this command the tool will search for a `jsdoccer/syntaxMatchers.js` file at the root of your project directory. if it is not found it will copy the `setup` directory into a `jsdoccer` directory at the project root containing the default syntax matchers and templates. You can then customize them to suit your style of code. **Note:** currently, if you delete the `syntaxMatchers.js` file it will generate a new `jsdoccer` folder with all the defaults and you will loose any custom augmentations you have made to your YAML templates. Once you have generated the stubbed YAML templates you will find them in the `jsdoccer/generated-files/yaml/stubbed` directory. You will need to move them to `jsdoccer/generated-files/yaml/documented` directory before you augment them so you don't accidentally over write them by running the task again. **If you forget to move them you will not be able to generate the documents!**
+As your sorce is parsed the tool will generate a sequence of intermediate files and save them to the path listed in the `options.dest` directory of your configuration. These files are usefull for debugging and looking for syntax target signatures in their ASTs. This first phase will ultimately generate YAML documentation stubs. You will need to move them to the `stub.doc` directory listed in your configuration before you augment them so you don't accidentally over write them by running the task again. **If you forget to move them you will not be able to generate the documents!**
 
 2) Generate document HTML
 
